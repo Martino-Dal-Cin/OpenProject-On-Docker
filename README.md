@@ -22,6 +22,7 @@ Configurazione per avviare l'immagine ufficiale OpenProject 17 con Docker Compos
 
    ```powershell
    $key = -join ((1..64) | ForEach-Object { '{0:x2}' -f (Get-Random -Maximum 256) })
+   $key
    notepad .env
    ```
 
