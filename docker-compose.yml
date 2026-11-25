@@ -1,0 +1,22 @@
+services:
+  openproject:
+    image: openproject/openproject:17
+    container_name: openproject
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8081:80"
+    env_file:
+      - .env
+    environment:
+      OPENPROJECT_HOST__NAME: localhost:8081
+      OPENPROJECT_HTTPS: "false"
+      OPENPROJECT_DEFAULT__LANGUAGE: it
+    volumes:
+      - openproject_data:/var/openproject
+      - openproject_pgdata:/var/openproject/pgdata
+      - openproject_assets:/var/openproject/assets
+
+volumes:
+  openproject_data:
+  openproject_pgdata:
+  openproject_assets:
